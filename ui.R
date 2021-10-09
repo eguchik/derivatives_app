@@ -11,10 +11,9 @@ shinyUI(
                     ".csv")
         ),
         tags$hr(),
-        h3('条件'),
-        htmlOutput("derivative_order"),
-        htmlOutput("filter_width"),
-        htmlOutput("polynomial_order"),
+        htmlOutput("dorder"),
+        htmlOutput("fl"),
+        htmlOutput("forder"),
         htmlOutput("n_smoothing"),
         actionButton("submit", "プロット")
       ),
