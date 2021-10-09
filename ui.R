@@ -15,7 +15,10 @@ shinyUI(
         htmlOutput("fl"),
         htmlOutput("forder"),
         htmlOutput("n_smoothing"),
-        actionButton("submit", "プロット")
+        htmlOutput("ylim_bottom"),
+        htmlOutput("ylim_top"),
+        actionButton("submit", "プロット"),
+        downloadButton('downloadData', 'Download'),
       ),
       mainPanel(
         tabsetPanel(type = "tabs",
