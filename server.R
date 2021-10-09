@@ -1,4 +1,5 @@
 library(pracma)
+library(colorspace)
 
 server = function(input, output, session) {
   observeEvent(input$file, {
@@ -49,8 +50,9 @@ server = function(input, output, session) {
     
     output$table <- renderTable(data.frame(wavelength, der_spc), digits=10)
     output$plot <- renderPlot({
-      for (i in colnames(spectra)) {
-        plot(wavelength, der_spc[, i], type='l', xlim=c(320,800), ylim=c(ylim_bottom, ylim_top), xlab='x', ylab='y')
+      palette <- rainbow_hcl(ncol(spectra), c=90, l=60)
+      for (i in seq(1:ncol(spectra))) {
+        plot(wavelength, der_spc[, i], type='l', xlim=c(320,800), ylim=c(ylim_bottom, ylim_top), xlab='x', ylab='y', col=palette[i], lwd=2)
         par(new=T)
       }
     })
