@@ -16,7 +16,7 @@ server = function(input, output, session) {
       radioButtons("forder", "多項式の次数", choices=c(2, 4), selected=2)
     })
     output$n_smoothing <- renderUI({ 
-      selectInput("n_smoothing", "スムージングの回数", choice=seq(1, 20), selected=4)
+      selectInput("n_smoothing", "スムージングの回数", choice=1:20, selected=4)
     })
     output$ylim_bottom <- renderUI({ 
       textInput("ylim_bottom", "y-axis limit (bottom)", value=-0.00003)
@@ -40,7 +40,7 @@ server = function(input, output, session) {
     ylim_top <- as.numeric(input$ylim_top)
 
     for (i in colnames(spectra)) {
-      for (j in seq(1:dorder)) {
+      for (j in 1:dorder) {
         der_spc[, i] <- gradient(der_spc[, i])
       }
       for (k in seq(1:n_smoothing)) {
