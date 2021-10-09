@@ -46,9 +46,7 @@ server = function(input, output, session) {
         der_spc[, i] = savgol(der_spc[, i], fl=fl, forder=forder, dorder=0)
       }
     }
-
-    write.csv(data.frame(wavelength, der_spc), 'test.csv', row.names=F)
-
+    
     output$table <- renderTable(data.frame(wavelength, der_spc), digits=10)
     output$plot <- renderPlot({
       for (i in colnames(spectra)) {
@@ -56,14 +54,14 @@ server = function(input, output, session) {
         par(new=T)
       }
     })
-  })
-  
-  output$downloadData <- downloadHandler(
+
+    output$downloadData <- downloadHandler(
       filename = function() {
-        paste("derivatives.csv")
+        paste0("derivatives_", dorder, 'd', fl, 'px', n_smoothing, ".csv", sep="")
       },
       content = function(file) {
-        write.csv(data.frame(wavelength, der_spc), file)
+        write.csv(data.frame(wavelength, der_spc), file, row.names=FALSE)
       }
     )
+  })
 }
