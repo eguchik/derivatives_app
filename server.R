@@ -4,7 +4,7 @@ library(colorspace)
 server = function(input, output, session) {
   observeEvent(input$file, {
 
-    csv_file <- reactive(read.csv(input$file$datapath))
+    csv_file <- reactive(read.csv(input$file$datapath, fileEncoding="UTF-8-BOM"))
 
     output$dorder <- renderUI({ 
       selectInput("dorder", "微分次数", choices=c(1, 2, 4, 8), selected=4)
@@ -27,7 +27,7 @@ server = function(input, output, session) {
   })
 
   observeEvent(input$submit, {
-    csv_file <- reactive(read.csv(input$file$datapath))
+    csv_file <- reactive(read.csv(input$file$datapath, fileEncoding="UTF-8-BOM"))
 
     wavelength <- csv_file()[, 1]
     spectra <- csv_file()[, 2:ncol(csv_file())]
