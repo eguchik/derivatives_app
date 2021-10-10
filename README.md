@@ -1,34 +1,20 @@
-
-
-
-
-
-
-
-
 ### Derivatives_app
 
 - 紫外-可視吸収スペクトルの微分変換を行うアプリケーションです。
 - 微分次数、スムージング条件の変更に伴い、インタラクティブにグラフのプロットを変更します。
-
-
 
 ### Requirements
 
 - R version 4.0.5
 - RStudio
 
-
-
 ### Install
 
 ```R
 install.packages('shiny')
-install.packages('pramca')
+install.packages('pracma')
 install.packages('colorspace')
 ```
-
-
 
 ### Usage
 
@@ -37,16 +23,12 @@ library('shiny')
 runApp('derivatives_app')
 ```
 
-※ derivatives_appフォルダが置かれているフォルダを作業ディレクトリとし、runApp() コマンドを入力してください。
-
-
+※ derivatives_app フォルダが置かれているフォルダを作業ディレクトリとし、runApp() コマンドを入力してください。
 
 ### Document
 
-- 紫外-可視吸収スペクトルのデータが入ったcsvファイルをアップロードした後、微分次数、スムージング条件を指定して「プロット」をクリック。
-- 「Download」 ボタンから計算した微分スペクトルをcsvファイルとしてダウンロードできます。
-
-
+- 紫外-可視吸収スペクトルのデータが入った csv ファイルをアップロードした後、微分次数、スムージング条件を指定して「プロット」をクリック。
+- 「Download」 ボタンから計算した微分スペクトルを csv ファイルとしてダウンロードできます。
 
 ### References
 
