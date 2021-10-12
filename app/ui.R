@@ -23,8 +23,7 @@ shinyUI(
       mainPanel(
         tabsetPanel(type = "tabs",
         　　　　　　 tabPanel("Plot", plotOutput("plot")),
-                    tabPanel("Table", tableOutput('table')),
-                    
+                    tabPanel("Table", tableOutput('table')),                   
         )
       )
     )

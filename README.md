@@ -5,7 +5,7 @@
 
 ### Requirements
 
-- R version 4.0.5
+- R version >= 4.0.5
 - RStudio
 
 ### Install
