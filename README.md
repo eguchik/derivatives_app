@@ -24,7 +24,12 @@ library('shiny')
 runApp('app')
 ```
 
-※ derivatives_app フォルダを作業ディレクトリとし、``` runApp('app') ``` コマンドを入力してください。
+-  setwd() で derivatives_app フォルダを作業ディレクトリとし、``` runApp('app') ``` コマンドを入力してください。
+
+- 作業ディレクトリの変更方法
+
+  http://cse.naro.affrc.go.jp/takezawa/r-tips/r/06.html
+
 
 ### Document
 
