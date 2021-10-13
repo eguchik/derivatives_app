@@ -2,6 +2,7 @@ library(shiny)
 
 shinyUI(
   fluidPage(
+    titlePanel("Absorption spectra into the high-order derivative spectra"),
     sidebarLayout(
       sidebarPanel(
         fileInput("file", "csvファイルを選択してください",

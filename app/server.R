@@ -16,7 +16,7 @@ server = function(input, output, session) {
       radioButtons("forder", "多項式の次数", choices=c(2, 4), selected=2)
     })
     output$n_smoothing <- renderUI({ 
-      selectInput("n_smoothing", "スムージングの回数", choice=1:20, selected=4)
+      selectInput("n_smoothing", "スムージングの回数", choice=1:20, selected=6)
     })
     output$ylim_bottom <- renderUI({ 
       textInput("ylim_bottom", "y-axis limit (bottom)", value=-0.00003)
@@ -59,7 +59,8 @@ server = function(input, output, session) {
 
     output$downloadData <- downloadHandler(
       filename = function() {
-        paste0("derivatives_", dorder, 'd', fl, 'px', n_smoothing, ".csv", sep="")
+        name <- substr(input$file, start=1, stop=nchar(input$file)-4)
+        paste0(name, '_', dorder, 'd', fl, 'px', n_smoothing, ".csv", sep="")
       },
       content = function(file) {
         write.csv(data.frame(wavelength, der_spc), file, row.names=FALSE)
